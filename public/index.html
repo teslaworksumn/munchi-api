@@ -1,17 +1,33 @@
-<!DOCTYPE>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<!--DO WE NEED THIS BASE HREF TAG?-->
+    <!--<base href="/">-->
 
+	<title>Munchi Web App</title>
+
+	<!-- CSS -->
+	<!--<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">-->
+	
+	<!-- JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+    <!--change router below to use $stateprovider???-->
+	<!--<script src="libs/angular-route/angular-route.min.js"></script>-->
+
+	<!-- ANGULAR CUSTOM -->
+	<script src="js/controllers/MainCtrl.js"></script>
+	<script src="js/app.js"></script>
 </head>
+<body ng-app="Munchi" ng-controller="MainController">
+<div>
+	<nav>
+	</nav>
 
-<body>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js">
-		
-	</script>
+	<!-- ANGULAR DYNAMIC CONTENT -->
+	<div ui-view></div>
 
+</div>
 </body>
-
-
-
-
 </html>
