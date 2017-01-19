@@ -1,13 +1,10 @@
-var MunchiApp = angular.module('Munchi', ['MainCtrl', 'RecipeService']);
+var MunchiApp = angular.module('Munchi', ['ngRoute']);
 
-//MunchiApp.config(function ($stateProvider, $urlRouterProvider, $urlRouterProvider) {
-//    $stateProvider
-//         .state('index', {
-//             url: '/',
-//             templateUrl: 'partials/home.html',
-//             controller: 'employeeListCtrl'
-//         })
-//
-//
-//    $urlRouterProvider.otherwise("/");
-//});
+MunchiApp.config(function ($routeProvider) {
+    $routeProvider
+         .when('/', {
+             templateUrl: 'views/home.html',
+             controller: 'MainCtrlr'
+         });
+
+});

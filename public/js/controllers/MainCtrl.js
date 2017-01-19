@@ -1,4 +1,4 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope) {
+MunchiApp.controller('MainController', function($scope) {
 
 	
 });

@@ -2,6 +2,6 @@
 	"name": "angular",
 	"version": "1.6.1",
 	"dependencies": {
-		"bootstrap": "latest",
+		"bootstrap": "latest"
 	}
 }
