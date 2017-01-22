@@ -1,17 +1,11 @@
 {
-  "name": "munchiapi",
-  "version": "1.0.0",
-  "description": "tesla works munchi api",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \\\"Error: no test specified\\\" && exit 1"
-  },
-  "author": "Tukkur VanVark",
-  "license": "ISC",
+  "name": "Munchi",
+  "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "mongoose": "^4.6.5",
-    "node-restful": "^0.2.5"
+    "express" : "~4.5.1",
+	"mongoose" : "~3.8.0",
+	"body-parser" : "~1.4.2",
+	"method-override" : "~2.0.2"
   }
 }
+
