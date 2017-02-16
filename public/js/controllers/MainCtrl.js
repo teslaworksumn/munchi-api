@@ -1,4 +1,4 @@
-MunchiApp.controller('MainController', function($scope) {
+MunchiApp.controller('MainCtrl', function($scope) {
 
 	
 });

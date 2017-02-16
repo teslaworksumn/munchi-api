@@ -1,16 +1,18 @@
+
 // modules =================================================
 var express        = require('express');
 var app            = express();
-var mongoose       = require('mongoose');
+var Mongo          = require('mongodb').MongoClient,
+    assert = require('assert');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+var assert = require('assert');
 
 // configuration ===========================================
 	
-var db = require('./config/db');
+var dbConfig = require('./config/db');
 
 var port = process.env.PORT || 3000; // set our port
-// mongoose.connect(db.url); // connect to our mongoDB database 
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,7 +25,22 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public')); 
 
 // routes ==================================================
-//require('./app/routes')(app); // pass our application into our routes
+require('./app/routes')(app); // pass our application into our routes
+
+app.get('/api/recipes', function(req, res){
+    Mongo.connect(dbConfig.url, function(err, db){
+        var recipes = [];   
+        var col_cursor = db.collection('Recipes').find();
+        col_cursor.forEach(function(doc, err){
+            recipes.push(doc);
+            console.log(recipes);
+        });
+        var json = JSON.parse(recipes);
+        res.send(json); 
+        db.close();
+    });
+   
+});
 
 // start api ===============================================
 app.listen(port);	
