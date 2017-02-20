@@ -30,13 +30,9 @@ require('./app/routes')(app); // pass our application into our routes
 app.get('/api/recipes', function(req, res){
     Mongo.connect(dbConfig.url, function(err, db){
         var recipes = [];   
-        var col_cursor = db.collection('Recipes').find();
-        col_cursor.forEach(function(doc, err){
-            recipes.push(doc);
-            console.log(recipes);
+        var col_cursor = db.collection('Recipes').find().toArray(function(err, docs){
+            res.json(docs);
         });
-        var json = JSON.parse(recipes);
-        res.send(json); 
         db.close();
     });
    
