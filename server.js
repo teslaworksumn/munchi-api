@@ -38,6 +38,12 @@ app.get('/api/recipes', function(req, res){
    
 });
 
+app.post('/api/rpi/turnOn', function(req, res){
+   console.log("Posting...")
+   res.flag = ";lkajdsf";
+   res.end(JSON.stringify(req.flag));
+});
+
 // start api ===============================================
 app.listen(port);	
 console.log('Listening on port ' + port);
