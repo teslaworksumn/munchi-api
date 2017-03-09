@@ -5,6 +5,8 @@ var app            = express();
 var Mongo          = require('mongodb').MongoClient,
     assert = require('assert');
 var bodyParser     = require('body-parser');
+var jsonParser     = bodyParser.json();
+var urlencodedParser=bodyParser.urlencoded({extended: false});
 var methodOverride = require('method-override');
 var assert = require('assert');
 
@@ -18,7 +20,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Origin", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 app.use(methodOverride('X-HTTP-Method-Override')); 
@@ -39,9 +41,8 @@ app.get('/api/recipes', function(req, res){
 });
 
 app.post('/api/rpi/turnOn', function(req, res){
-   console.log("Posting...")
-   res.flag = ";lkajdsf";
-   res.end(JSON.stringify(req.flag));
+   console.log(req.body);
+   res.send('success');
 });
 
 // start api ===============================================
